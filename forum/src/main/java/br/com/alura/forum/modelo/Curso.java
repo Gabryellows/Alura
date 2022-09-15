@@ -1,16 +1,18 @@
 package br.com.alura.forum.modelo;
 
-public class Curso {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Curso {
+	
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	private String nome;
 	private String categoria;
 
-	public Curso(String nome, String categoria) {
-		this.nome = nome;
-		this.categoria = categoria;
-	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -34,6 +36,9 @@ public class Curso {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	
+	public Curso() {
 	}
 
 	public Long getId() {
